@@ -29,7 +29,7 @@ export default function WeatherCard(props) {
             <Card key={index} className={classes.root} variant="outlined">
               <CardContent>
                 <Typography variant="h5" component="h2">
-                  {Math.floor(item.main.temp)} °F
+                  {Math.floor(item.main.temp)}°F
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
                   {item.weather[0].description}
