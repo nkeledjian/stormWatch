@@ -35,7 +35,7 @@ export default function WeatherCard(props) {
                   {item.weather[0].description}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                  Humidity: {item.main.humidity} %
+                  Humidity: {item.main.humidity}%
                 </Typography>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                   {item.dt_txt}
