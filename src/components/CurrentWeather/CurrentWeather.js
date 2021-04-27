@@ -29,7 +29,8 @@ export default class CurrentWeather extends React.Component {
     return (
       <div>
         <h1>{this.state.city}</h1>
-        <h3>{this.state.temp}°F</h3>
+        <h4>-Current Weather-</h4>
+        <h3>{Math.floor(this.state.temp)} °F</h3>
         <h3>{this.state.conditions}</h3>
         <h3>Humidity: {this.state.humidity}%</h3>
         <br></br>
