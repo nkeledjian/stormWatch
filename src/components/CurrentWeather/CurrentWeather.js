@@ -9,9 +9,9 @@ export default class CurrentWeather extends React.Component {
     humidity: "",
     temp: []
   }
-
+  // SF city code: 'id=5391959'
   componentDidMount() {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?id=5391959&units=imperial&appid=${API_KEY}`
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=Sacramento&units=imperial&appid=${API_KEY}`
     fetch(apiUrl)
     .then(res => res.json())
     .then(data => {
@@ -22,7 +22,6 @@ export default class CurrentWeather extends React.Component {
         temp: data.list[0].main.temp
       })
     });
-    
   }
 
   render() {

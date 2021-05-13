@@ -20,15 +20,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function WeatherCard(props) {
+export default function GeoForecast(props) {
   const classes = useStyles();
-  const displayWeatherData = props => {
+  const displayGeoWeatherData = props => {
     const {data} = props;
     // render if data is a available, else, render 'loading'
     if(data.length > 0) {
       return (
         // work through array of objects containing forecast data
         data.map((item, index) => {
+          console.log(item);
           return (
             <Card key={index} className={classes.root} variant="outlined">
               <CardContent>
@@ -49,8 +50,6 @@ export default function WeatherCard(props) {
           )
         })
       )
-    } else {
-      return (<h3>Loading...</h3>)
     }
   }
   
@@ -58,7 +57,7 @@ export default function WeatherCard(props) {
     <Grid container className={classes.grid}>
       <Grid item xs={12}>
         <Grid container justify="center">
-          {displayWeatherData(props)}
+          {displayGeoWeatherData(props)}
         </Grid>
       </Grid>
     </Grid>

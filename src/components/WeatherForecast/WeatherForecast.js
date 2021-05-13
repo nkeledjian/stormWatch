@@ -3,11 +3,11 @@ import axios from 'axios';
 import WeatherCard from '../../containers/WeatherCard';
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-// retreive API data
+// retreive API data, display forecast info
 export default function WeatherForecast() {
-  // set state variable 'data'
+  // initialize state variable 'data'
   const [data, setData] = useState('');
-  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?id=5391959&units=imperial&appid=${API_KEY}`
+  const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?id=5389489&units=imperial&appid=${API_KEY}`
 
   useEffect(() => {
     fetchForecast();
@@ -16,15 +16,19 @@ export default function WeatherForecast() {
   const fetchForecast = () => {
     axios.get(apiUrl)
       .then((res) => {
-        // point to api's forecast data (res.data.list) then update state variable with 'setData'
+        console.log('basic forecast', res)
+        // forecast data response (res.data.list)
         const forecastData = res.data.list;
+        // update state variable 'data'
         setData(forecastData);
       })
       .catch(error => console.error(`Error: ${error}`));
   };
 
   return (
-    <WeatherCard data={data} />
+    <div>
+      <WeatherCard data={data} />
+    </div>
   );
 
 };
