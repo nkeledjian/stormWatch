@@ -7,10 +7,10 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 125,
+    minWidth: 100,
   },
   grid: {
-    flexGrow: 0.5,
+    flexGrow: 1,
   },
   title: {
     fontSize: 14,
@@ -42,8 +42,17 @@ export default function GeoForecast(props) {
           return (
             <Card key={index} className={classes.root} variant="outlined">
               <CardContent>
-                <Typography variant="h5" component="h2">
+                <Typography variant="h4" component="h2">
+                  <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`} alt='forecast icon for the day'></img>
+                </Typography>
+                {/* <Typography variant="h5" component="h2">
                   {Math.floor(item.temp.day)}°F
+                </Typography> */}
+                <Typography variant="h6" component="h6">
+                  High:{Math.floor(item.temp.max)}°F
+                </Typography>
+                <Typography variant="h6" component="h6">
+                  Low: {Math.floor(item.temp.min)}°F
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
                   {item.weather[0].description}
